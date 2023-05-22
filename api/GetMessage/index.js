@@ -1,6 +1,9 @@
-module.exports = async function (context, req) {
-  context.res = {
-    // status: 200, /* Defaults to 200 */
-    body: { text: "Hello from the API!!" },
-  };
+module.exports = async function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if (myTimer.isPastDue)
+    {
+        context.log('Node is running late!');
+    }
+    context.log('Node timer trigger function ran!', timeStamp);   
 };
